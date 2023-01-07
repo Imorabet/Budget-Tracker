@@ -2,7 +2,6 @@ import React from "react";
 
 function Header({ income, expense }) {
   return (
-    <div>
       <div className="myrow">
         <div className="mycol col-balance">
           <h3 className="balance-text">Balance</h3>
@@ -17,7 +16,7 @@ function Header({ income, expense }) {
           <div className="expense-text">{expense} DH</div>
         </div>
       </div>
-    </div>
+  
   );
 }
 

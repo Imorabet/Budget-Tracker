@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import swal from "sweetalert";
 import { uniqueId } from "../utils";
 
 function InputFields({ onNewTransaction }) {
@@ -9,6 +10,12 @@ function InputFields({ onNewTransaction }) {
   const addTransaction = (type, evt) => {
     evt.preventDefault();
 
+    if (nameValue=='' || amountValue==0) {
+      swal("Uh oh! fields can't be empty !", {
+        icon: "error",
+      });
+    }
+    else{
     const data = {
       id: uniqueId(),
       name: nameValue,
@@ -18,7 +25,7 @@ function InputFields({ onNewTransaction }) {
     };
 
     onNewTransaction(data);
-
+}
     setNameValue("");
     setAmountValue("");
     setCategoryValue("");

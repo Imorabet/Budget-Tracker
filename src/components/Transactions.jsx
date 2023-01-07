@@ -1,27 +1,27 @@
 import { faBook, faBowlFood, faCar, faCartPlus, faHouse, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MdDelete, MdDirectionsCar, MdFastfood, MdHome, MdOutlineAddShoppingCart } from "react-icons/md";
+import { ImBooks} from "react-icons/im";
 import React from "react";
 const conditions = (cat) => {
     switch (cat) {
       case "msn":
        return (
-          <button> <FontAwesomeIcon icon={faHouse} /> </button>
+        <span><MdHome /> </span>
         );
       case "vtr":
         return (
-          <button><FontAwesomeIcon icon={faCar} /></button>
+          <span><MdDirectionsCar /></span>
         );
       case "edu":
-        return (
-          <button> <FontAwesomeIcon icon={faBook} /></button>
+        return (<span><ImBooks/></span> 
         );
       case "nrt":
-        return (
-          <button> <FontAwesomeIcon icon={faBowlFood} /></button>
+        return ( <span><MdFastfood /></span>
         );
       default:
         return (
-          <button> <FontAwesomeIcon icon={faCartPlus} /></button>
+          <span> <MdOutlineAddShoppingCart/></span>
         );
     }
   };
@@ -33,12 +33,12 @@ function Transactions({ transactions, onDeleteTransaction }) {
         <br />
         {transactions.map((data) => (
           <li key={data.id}>
+                {conditions(data.cat)}
             <div>{data.name}</div>
             <div>
               <span>{data.amount} DH</span>
-                {conditions(data.cat)}
-              <button onClick={() => onDeleteTransaction(data.id)}>
-                <FontAwesomeIcon icon={faTrashCan} />
+              <button className="deleteBtn" onClick={() => onDeleteTransaction(data.id)}>
+                <MdDelete/>
               </button>
             </div>
           </li>

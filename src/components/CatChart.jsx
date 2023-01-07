@@ -44,7 +44,7 @@ export default function CatChart({ transactions}){
     ],
   };
   return (
-    <div>
+    <div className="chart">
        <h2>Category Expenses</h2>
       <Doughnut data={data} />
     </div>

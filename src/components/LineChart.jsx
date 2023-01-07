@@ -22,13 +22,13 @@ const BarChart = ({ income, expense }) => {
         borderColor: [
          
         ],
-        borderWidth: 0.6,
+        borderWidth: 0,
       },
     ],
   };
 
   return (
-    <div>
+    <div className="chart">
        <h2>Budget's graph</h2>
       <Doughnut data={data} />
     </div>
